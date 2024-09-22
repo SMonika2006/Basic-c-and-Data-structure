@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, max;
+
+    // Input: number of elements in the array
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int array[n];
+
+    // Input: elements of the array
+    printf("Enter the elements of the array:\n");
+    for (i = 0; i < n; i++) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &array[i]);
+    }
+
+    // Assume the first element is the largest initially
+    max = array[0];
+
+    // Loop through the array to find the largest element
+    for (i = 1; i < n; i++) {
+        if (array[i] > max) {
+            max = array[i]; // Update max if current element is larger
+        }
+    }
+
+    // Output: largest element
+    printf("The largest element in the array is: %d\n", max);
+
+    return 0;
+}
