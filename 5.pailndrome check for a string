@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[100], cleanedStr[100];
+    int i, j = 0, len;
+
+    // Taking input from the user
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Remove any non-alphanumeric characters and convert to lowercase
+    for (i = 0; str[i] != '\0'; i++) {
+        if (isalnum(str[i])) { // Check if it's a letter or number
+            cleanedStr[j++] = tolower(str[i]);
+        }
+    }
+    cleanedStr[j] = '\0'; // Null-terminate the cleaned string
+
+    // Calculate the length of the cleaned string
+    len = strlen(cleanedStr);
+
+    // Check if the string is a palindrome
+    int isPalindrome = 1; // Assume it's a palindrome
+    for (i = 0; i < len / 2; i++) {
+        if (cleanedStr[i] != cleanedStr[len - 1 - i]) {
+            isPalindrome = 0; // Not a palindrome
+            break;
+        }
+    }
+
+    // Display the result
+    if (isPalindrome)
+        printf("The string is a palindrome.\n");
+    else
+        printf("The string is not a palindrome.\n");
+
+    return 0;
+}
